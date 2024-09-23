@@ -2,17 +2,18 @@ package dev.service;
 
 import dev.Bean.SaveUserBean;
 import dev.domain.RequestSaveUserDTO;
-import dev.repository.UserDAORepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public  class  UserService {
+    SaveUserBean saveUserBean;
 
-    @Autowired
-    Boolean saveUser(RequestSaveUserDTO requestSaveUserDTO){
-        return SaveUserBean.exec(requestSaveUserDTO);
+    public UserService(SaveUserBean saveUserBean) {
+        this.saveUserBean = saveUserBean;
+    }
+
+    public Boolean saveUser(RequestSaveUserDTO requestSaveUserDTO){
+        return saveUserBean.exec(requestSaveUserDTO);
     }
 
 }
