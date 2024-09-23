@@ -16,7 +16,6 @@ import java.util.UUID;
 public class UserDAO {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
     private String userName;
     private String passWord;

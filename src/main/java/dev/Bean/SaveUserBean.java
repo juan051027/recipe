@@ -1,13 +1,14 @@
 package dev.Bean;
 
-import dev.domain.RequestSaveUserDTO;
+import dev.domain.DTO.RequestSaveUserDTO;
 import dev.domain.UserDAO;
 import dev.repository.UserDAORepository;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
 import java.util.UUID;
 
-@Configuration
+@Component
 public class SaveUserBean {
     private final UserDAORepository userDAORepository;
 

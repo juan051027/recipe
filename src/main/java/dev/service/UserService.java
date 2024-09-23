@@ -1,12 +1,12 @@
 package dev.service;
 
 import dev.Bean.SaveUserBean;
-import dev.domain.RequestSaveUserDTO;
+import dev.domain.DTO.RequestSaveUserDTO;
 import org.springframework.stereotype.Service;
 
 @Service
 public  class  UserService {
-    SaveUserBean saveUserBean;
+    private final SaveUserBean saveUserBean;
 
     public UserService(SaveUserBean saveUserBean) {
         this.saveUserBean = saveUserBean;

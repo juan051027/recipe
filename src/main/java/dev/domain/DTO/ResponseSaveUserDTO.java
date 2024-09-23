@@ -1,4 +1,4 @@
-package dev.domain;
+package dev.domain.DTO;
 
 import lombok.Data;
 import lombok.Getter;
