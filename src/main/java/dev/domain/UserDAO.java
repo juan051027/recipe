@@ -17,7 +17,7 @@ public class UserDAO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id = UUID.randomUUID().toString();
+    private UUID id;
     private String userName;
     private String passWord;
 }
