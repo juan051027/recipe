@@ -16,7 +16,6 @@ public class SaveUserBean {
         this.userDAORepository = userDAORepository;
     }
 
-    @Bean
     public Boolean exec(RequestSaveUserDTO requestSaveUserDTO){
         UserDAO userDAO = new UserDAO();
         userDAO.setId(UUID.randomUUID());
