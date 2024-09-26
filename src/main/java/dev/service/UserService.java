@@ -31,8 +31,8 @@ public  class  UserService {
         return loginUserBean.exec(requestLoginUserDTO);
     }
 
-    public Boolean logoutUser(RequestLogoutUserDTO requestLogoutUserDTO){
-        return logoutUserBean.exec(requestLogoutUserDTO);
+    public Boolean logoutUser(){
+        return logoutUserBean.exec();
     }
 
 }

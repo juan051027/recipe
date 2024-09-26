@@ -3,7 +3,12 @@ package dev.controller;
 
 import dev.domain.DTO.RequestSaveUserDTO;
 import dev.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @CrossOrigin("*")
 @RestController
@@ -30,5 +35,15 @@ public class UserController {
         return responseAPI;
     }
     */
+    @PostMapping("/logout")
+    public ResponseEntity<Map<String, Object>> logout() {
+        Boolean isSuccess = true;
+
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("isSuccess", isSuccess);
+        responseMap.put("message", isSuccess ? "로그아웃 성공했습니다." : "로그아웃에 실패했습니다.");
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
+    }
 
 }

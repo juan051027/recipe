@@ -15,8 +15,7 @@ public class LogoutUserBean {
         this.userDAORepository = userDAORepository;
     }
 
-    public Boolean exec(RequestLogoutUserDTO requestLogoutUserDTO){
-        UserDAO userDAO = userDAORepository.findByUserName(requestLogoutUserDTO.getUserName());
-        return Objects.equals(userDAO.getPassWord(), requestLogoutUserDTO.getPassWord());
+    public Boolean exec(){
+        return true;
     }
 }
