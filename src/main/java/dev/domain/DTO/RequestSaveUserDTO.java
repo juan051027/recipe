@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @Data
 public class RequestSaveUserDTO {
-    private String name;
-    private String password;
+    private String userName;
+    private String passWord;
 }

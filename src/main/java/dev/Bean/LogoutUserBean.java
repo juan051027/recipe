@@ -1,11 +1,7 @@
 package dev.Bean;
 
-import dev.domain.DTO.RequestLogoutUserDTO;
-import dev.domain.UserDAO;
 import dev.repository.UserDAORepository;
 import org.springframework.stereotype.Component;
-
-import java.util.Objects;
 
 @Component
 public class LogoutUserBean {

@@ -7,7 +7,6 @@ import lombok.Setter;
 @Setter
 @Getter
 @Data
-public class RequestLogoutUserDTO {
+public class RequestCheckUserDTO {
     private String userName;
-    private String passWord;
 }

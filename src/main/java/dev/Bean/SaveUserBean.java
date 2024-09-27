@@ -19,8 +19,8 @@ public class SaveUserBean {
     public Boolean exec(RequestSaveUserDTO requestSaveUserDTO){
         UserDAO userDAO = new UserDAO();
         userDAO.setId(UUID.randomUUID());
-        userDAO.setUserName(requestSaveUserDTO.getName());
-        userDAO.setPassWord(requestSaveUserDTO.getPassword());
+        userDAO.setUserName(requestSaveUserDTO.getUserName());
+        userDAO.setPassWord(requestSaveUserDTO.getPassWord());
         userDAORepository.save(userDAO);
         return true;
     }
