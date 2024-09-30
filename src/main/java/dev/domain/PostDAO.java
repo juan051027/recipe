@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -22,6 +23,6 @@ public class PostDAO {
     private String thumbnail;
     private String title;
     private String description;
-    private Map<String, Object> ingredient;
-    private Map<String, Object> instructions;
+    private List<Map<String, Object>> ingredient;
+    private List<Map<String, Object>> instructions;
 }
