@@ -24,8 +24,9 @@ public class UserController {
     }
 
 
+    //
     @PostMapping("/duplicate")
-    public ResponseEntity<Map<String, Object>> checkname(RequestCheckUserDTO requestCheckUserDTO){
+    public ResponseEntity<Map<String, Object>> checkname(@RequestBody RequestCheckUserDTO requestCheckUserDTO){
         Boolean isSuccess = userService.checkUser(requestCheckUserDTO);
 
         Map<String, Object> responseMap = new HashMap<>();
@@ -38,10 +39,11 @@ public class UserController {
 
 
     @PostMapping("/signup")
-    public ResponseEntity<Map<String, Object>> signup(RequestSaveUserDTO requestSaveUserDTO){
+    public ResponseEntity<Map<String, Object>> signup(@RequestBody RequestSaveUserDTO requestSaveUserDTO){
         Boolean isSuccess = userService.saveUser(requestSaveUserDTO);
 
         Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("username", requestSaveUserDTO.getUserName());
         responseMap.put("is_success",isSuccess);
         responseMap.put("message", isSuccess ? "계정이 성공적으로 생성되었습니다." : "비밀번호가 보안 기준에 적합하지 않습니다.");
 
@@ -52,7 +54,7 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<Map<String, Object>> login(RequestLoginUserDTO requestLoginUserDTO){
+    public ResponseEntity<Map<String, Object>> login(@RequestBody RequestLoginUserDTO requestLoginUserDTO){
         UUID id = userService.loginUser(requestLoginUserDTO);
         Boolean isSuccess = id != null;
 

@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 @Component
-public class SameUserBean {
+public class CheckUserBean {
 
     private final UserDAORepository userDAORepository;
 
-    public SameUserBean(UserDAORepository userDAORepository){
+    public CheckUserBean(UserDAORepository userDAORepository){
         this.userDAORepository = userDAORepository;
     }
 

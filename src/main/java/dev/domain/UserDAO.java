@@ -1,11 +1,11 @@
 package dev.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
+
 
 import java.util.UUID;
 
@@ -15,7 +15,9 @@ import java.util.UUID;
 public class UserDAO {
 
     @Id
-    private UUID id;
+    @Column(name = "user_id")
+    private UUID userId;
     private String userName;
     private String passWord;
+
 }

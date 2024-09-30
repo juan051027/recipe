@@ -18,9 +18,9 @@ public class LoginUserBean {
     }
 
     public UUID exec(RequestLoginUserDTO requestLoginUserDTO){
-        UserDAO userDAO = userDAORepository.findById(requestLoginUserDTO.getId()).orElse(null);
+        UserDAO userDAO = userDAORepository.findByNameAndPassword(requestLoginUserDTO.getUserName(),requestLoginUserDTO.getPassWord());
         if(Objects.equals(userDAO.getUserName(), requestLoginUserDTO.getUserName()) && Objects.equals(userDAO.getPassWord(), requestLoginUserDTO.getPassWord())){
-            return userDAO.getId();
+            return userDAO.getUserId();
         }
         else return null;
     }
