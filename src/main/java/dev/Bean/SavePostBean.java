@@ -17,7 +17,7 @@ public class SavePostBean {
         this.postDAORepository = postDAORepository;
     }
 
-    public RequestSavePostDTO exec(RequestSavePostDTO requestSavePostDTO){
+    public PostDAO exec(RequestSavePostDTO requestSavePostDTO){
         PostDAO postDAO = new PostDAO();
         postDAO.setUserId(requestSavePostDTO.getUserId());
         postDAO.setThumbnail(requestSavePostDTO.getThumbnail());
