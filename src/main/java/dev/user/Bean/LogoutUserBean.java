@@ -1,6 +1,6 @@
-package dev.Bean;
+package dev.user.Bean;
 
-import dev.repository.UserDAORepository;
+import dev.user.repository.UserDAORepository;
 import org.springframework.stereotype.Component;
 
 @Component

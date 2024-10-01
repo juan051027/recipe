@@ -1,8 +1,8 @@
-package dev.service;
+package dev.post.service;
 
-import dev.Bean.SavePostBean;
-import dev.domain.DTO.RequestSavePostDTO;
-import dev.domain.PostDAO;
+import dev.post.domain.PostDAO;
+import dev.post.Bean.SavePostBean;
+import dev.post.domain.DTO.RequestSavePostDTO;
 import org.springframework.stereotype.Service;
 
 @Service

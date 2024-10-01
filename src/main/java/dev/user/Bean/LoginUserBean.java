@@ -1,9 +1,8 @@
-package dev.Bean;
+package dev.user.Bean;
 
-import dev.domain.DTO.RequestLoginUserDTO;
-import dev.domain.UserDAO;
-import dev.repository.UserDAORepository;
-import org.springframework.context.annotation.Bean;
+import dev.user.domain.DTO.RequestLoginUserDTO;
+import dev.user.domain.UserDAO;
+import dev.user.repository.UserDAORepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;

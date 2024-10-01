@@ -1,6 +1,6 @@
-package dev.repository;
+package dev.user.repository;
 
-import dev.domain.UserDAO;
+import dev.user.domain.UserDAO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

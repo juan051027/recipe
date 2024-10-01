@@ -1,13 +1,13 @@
-package dev.service;
+package dev.user.service;
 
 
-import dev.Bean.LoginUserBean;
-import dev.Bean.LogoutUserBean;
-import dev.Bean.CheckUserBean;
-import dev.Bean.SaveUserBean;
-import dev.domain.DTO.RequestCheckUserDTO;
-import dev.domain.DTO.RequestLoginUserDTO;
-import dev.domain.DTO.RequestSaveUserDTO;
+import dev.user.Bean.CheckUserBean;
+import dev.user.Bean.LoginUserBean;
+import dev.user.Bean.LogoutUserBean;
+import dev.user.Bean.SaveUserBean;
+import dev.user.domain.DTO.RequestCheckUserDTO;
+import dev.user.domain.DTO.RequestLoginUserDTO;
+import dev.user.domain.DTO.RequestSaveUserDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;

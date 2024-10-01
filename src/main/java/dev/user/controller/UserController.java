@@ -1,10 +1,10 @@
-package dev.controller;
+package dev.user.controller;
 
 
-import dev.domain.DTO.RequestCheckUserDTO;
-import dev.domain.DTO.RequestLoginUserDTO;
-import dev.domain.DTO.RequestSaveUserDTO;
-import dev.service.UserService;
+import dev.user.domain.DTO.RequestCheckUserDTO;
+import dev.user.domain.DTO.RequestLoginUserDTO;
+import dev.user.domain.DTO.RequestSaveUserDTO;
+import dev.user.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package dev.domain.DTO;
+package dev.user.domain.DTO;
 
 import lombok.Data;
 

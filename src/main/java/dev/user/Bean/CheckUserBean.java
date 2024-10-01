@@ -1,8 +1,8 @@
-package dev.Bean;
+package dev.user.Bean;
 
-import dev.domain.DTO.RequestCheckUserDTO;
-import dev.domain.UserDAO;
-import dev.repository.UserDAORepository;
+import dev.user.domain.DTO.RequestCheckUserDTO;
+import dev.user.domain.UserDAO;
+import dev.user.repository.UserDAORepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;

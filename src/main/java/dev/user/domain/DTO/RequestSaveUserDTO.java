@@ -1,13 +1,10 @@
-package dev.domain.DTO;
+package dev.user.domain.DTO;
 
 import lombok.Data;
 
 
-import java.util.UUID;
-
-
 @Data
-public class RequestLoginUserDTO {
+public class RequestSaveUserDTO {
     private String userName;
     private String passWord;
 }
