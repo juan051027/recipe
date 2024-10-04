@@ -22,6 +22,6 @@ public class PostDAO {
     private String thumbnail;
     private String title;
     private String description;
-    private List<Map<String, Object>> ingredient;
-    private List<Map<String, Object>> instructions;
+    private Map<String, Object> ingredient;
+    private Map<String, Object> instructions;
 }
