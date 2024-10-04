@@ -23,7 +23,7 @@ public class PostDAO {
 
     @ElementCollection
     @CollectionTable(name = "name", joinColumns = @JoinColumn(name = "quantity"))
-    @MapKeyColumn("")
+    @MapKeyColumn
     private Map<String, Object> ingredient;
     private Map<String, Object> instructions;
 }
