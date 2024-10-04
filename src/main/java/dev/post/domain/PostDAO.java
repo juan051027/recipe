@@ -1,8 +1,6 @@
 package dev.post.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +20,10 @@ public class PostDAO {
     private String thumbnail;
     private String title;
     private String description;
+
+    @ElementCollection
+    @CollectionTable(name = "name", joinColumns = @JoinColumn(name = "quantity"))
+    @MapKeyColumn("")
     private Map<String, Object> ingredient;
     private Map<String, Object> instructions;
 }
