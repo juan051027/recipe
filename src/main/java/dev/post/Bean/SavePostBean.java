@@ -16,6 +16,8 @@ public class SavePostBean {
     }
 
     public PostDAO exec(RequestSavePostDTO requestSavePostDTO){
+
+        System.out.println(requestSavePostDTO.getDescription());
         PostDAO postDAO = new PostDAO();
         postDAO.setRecipeId(UUID.randomUUID());
         postDAO.setUserId(requestSavePostDTO.getUserId());

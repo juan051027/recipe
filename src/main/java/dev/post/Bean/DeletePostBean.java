@@ -3,7 +3,9 @@ package dev.post.Bean;
 import dev.post.Repository.PostDAORepository;
 import dev.post.domain.DTO.RequestDeletePostDTO;
 import dev.post.domain.PostDAO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DeletePostBean {
     private final PostDAORepository postDAORepository;
 

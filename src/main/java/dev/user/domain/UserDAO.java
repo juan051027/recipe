@@ -15,7 +15,6 @@ import java.util.UUID;
 public class UserDAO {
 
     @Id
-    @Column(name = "user_id")
     private UUID userId;
     private String userName;
     private String passWord;

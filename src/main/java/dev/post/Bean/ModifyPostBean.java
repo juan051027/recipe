@@ -3,8 +3,9 @@ package dev.post.Bean;
 import dev.post.Repository.PostDAORepository;
 import dev.post.domain.DTO.RequestModifyPostDTO;
 import dev.post.domain.PostDAO;
-import dev.user.domain.UserDAO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ModifyPostBean {
     private final PostDAORepository postDAORepository;
 

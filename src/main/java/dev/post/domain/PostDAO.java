@@ -15,15 +15,14 @@ import java.util.UUID;
 public class PostDAO {
     @Id
     private UUID recipeId;
-    @Column(name = "user_id")
     private UUID userId;
     private String thumbnail;
     private String title;
     private String description;
 
-    @ElementCollection
-    @CollectionTable(name = "name", joinColumns = @JoinColumn(name = "quantity"))
-    @MapKeyColumn
-    private Map<String, Object> ingredient;
-    private Map<String, Object> instructions;
+    @Convert(converter = StringListConverter.class)
+    private List<Map<String, Object>> ingredient;
+
+    @Convert(converter = StringListConverter.class)
+    private List<Map<String, Object>> instructions;
 }

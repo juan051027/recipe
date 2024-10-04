@@ -1,5 +1,7 @@
 package dev.post.domain.DTO;
 
+import dev.post.domain.StringListConverter;
+import jakarta.persistence.Convert;
 import lombok.Data;
 
 import java.util.List;
@@ -13,6 +15,10 @@ public class RequestModifyPostDTO {
     private String thumbnail;
     private String title;
     private String description;
+
+    @Convert(converter = StringListConverter.class)
     private List<Map<String, Object>> ingredient;
+
+    @Convert(converter = StringListConverter.class)
     private List<Map<String, Object>> instructions;
 }
