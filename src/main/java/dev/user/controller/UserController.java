@@ -31,7 +31,7 @@ public class UserController {
 
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("is_success", isSuccess);
-        responseMap.put("message", isSuccess ? "사용할 수 있는 아이디입니다." : "이미 있는 아이디입니다.");
+        responseMap.put("message", isSuccess ? "이미 있는 아이디입니다." : "사용할 수 있는 아이디입니다.");
 
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
