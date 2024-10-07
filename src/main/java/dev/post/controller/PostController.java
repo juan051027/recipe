@@ -22,6 +22,7 @@ public class PostController {
         this.postService = postService;
     }
 
+    //레시피 게시
     @PostMapping
     public ResponseEntity<Map<String, Object>> postpost(@RequestBody RequestSavePostDTO requestSavePostDTO){
         UUID id = postService.savePost(requestSavePostDTO).getRecipeId();
@@ -35,6 +36,7 @@ public class PostController {
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
+    //레시피 삭제
     @DeleteMapping
     public ResponseEntity<Map<String, Object>> deletepost(@RequestBody RequestDeletePostDTO requestDeletePostDTO){
         Boolean isSuccess = postService.deletePost(requestDeletePostDTO);
@@ -45,6 +47,8 @@ public class PostController {
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
+
+    //레시피 수정
     @PutMapping
     public ResponseEntity<Map<String, Object>> modifypost(@RequestBody RequestModifyPostDTO requestModifyPostDTO){
         Boolean isSuccess = postService.modifyPost(requestModifyPostDTO);
@@ -53,6 +57,16 @@ public class PostController {
         responseMap.put("is_success",isSuccess);
         responseMap.put("message", isSuccess ? "레시피 수정에 성공했습니다." : "레시피 수정에 실패하였습니다.");
         if(isSuccess) responseMap.put("recipe_id",requestModifyPostDTO.getRecipeId());
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
+
+    }
+
+    //레시피 전체 조회
+    @GetMapping("/all")
+    public ResponseEntity<Map<String,Object>> findallpost(){
+
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("posts",postService.FindAllPost());
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
 
     }

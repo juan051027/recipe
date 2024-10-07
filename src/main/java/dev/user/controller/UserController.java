@@ -24,7 +24,7 @@ public class UserController {
     }
 
 
-    //
+    //중복 검사
     @PostMapping("/duplicate")
     public ResponseEntity<Map<String, Object>> checkname(@RequestBody RequestCheckUserDTO requestCheckUserDTO){
         Boolean isSuccess = userService.checkUser(requestCheckUserDTO);
@@ -36,8 +36,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
-
-
+    //회원가입
     @PostMapping("/signup")
     public ResponseEntity<Map<String, Object>> signup(@RequestBody RequestSaveUserDTO requestSaveUserDTO){
         Boolean isSuccess = userService.saveUser(requestSaveUserDTO);
@@ -52,7 +51,7 @@ public class UserController {
 
 
 
-
+    //로그인
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody RequestLoginUserDTO requestLoginUserDTO){
         UUID id = userService.loginUser(requestLoginUserDTO);

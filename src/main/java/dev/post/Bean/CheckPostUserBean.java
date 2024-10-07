@@ -3,8 +3,9 @@ package dev.post.Bean;
 import dev.post.Repository.PostDAORepository;
 import dev.post.domain.DTO.CheckPostUserDTO;
 import dev.post.domain.PostDAO;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class CheckPostUserBean{
     private final PostDAORepository postDAORepository;
 

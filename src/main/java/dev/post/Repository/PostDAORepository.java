@@ -9,4 +9,5 @@ public interface PostDAORepository extends JpaRepository<PostDAO, UUID> {
     PostDAO findByTitle(String title);
     PostDAO findByUserId(UUID userid);
     PostDAO findByRecipeIdAndUserId(UUID recipeid, UUID userid);
+    PostDAO findAllByUserId(UUID userid);
 }
