@@ -6,6 +6,6 @@ import lombok.Data;
 import java.util.UUID;
 
 @Data
-public class FindUserPostDTO {
-    UUID userid;
+public class RequestFindUserPostDTO {
+    private UUID user_id;
 }

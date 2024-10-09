@@ -1,9 +1,7 @@
 package dev.post.controller;
 
-import dev.post.domain.DTO.RequestDeletePostDTO;
-import dev.post.domain.DTO.RequestModifyPostDTO;
+import dev.post.domain.DTO.*;
 import dev.post.service.PostService;
-import dev.post.domain.DTO.RequestSavePostDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -66,9 +64,25 @@ public class PostController {
     public ResponseEntity<Map<String,Object>> findallpost(){
 
         Map<String, Object> responseMap = new HashMap<>();
-        responseMap.put("posts",postService.FindAllPost());
+        responseMap.put("posts",postService.findAllPost());
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
 
+    }
+
+    //레시피 id 조회
+    @GetMapping("/detail/{recipe_id}")
+    public ResponseEntity<Map<String,Object>> finddetailpost(@PathVariable("recipe_id") RequestFindDetailPostDTO requestFindDetailPostDTO){
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("posts",postService.findDetailPost(requestFindDetailPostDTO));
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
+    }
+
+    //레시피 id 조회
+    @GetMapping("/detail/{user_id}/all")
+    public ResponseEntity<Map<String,Object>> finduserpost(@PathVariable("user_id") RequestFindUserPostDTO requestFindUserPostDTO){
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("posts",postService.findUserPost(requestFindUserPostDTO));
+        return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
 

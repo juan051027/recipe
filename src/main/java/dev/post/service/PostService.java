@@ -1,13 +1,8 @@
 package dev.post.service;
 
-import dev.post.Bean.DeletePostBean;
-import dev.post.Bean.FindAllPostBean;
-import dev.post.Bean.ModifyPostBean;
-import dev.post.domain.DTO.RequestDeletePostDTO;
-import dev.post.domain.DTO.RequestModifyPostDTO;
+import dev.post.Bean.*;
+import dev.post.domain.DTO.*;
 import dev.post.domain.PostDAO;
-import dev.post.Bean.SavePostBean;
-import dev.post.domain.DTO.RequestSavePostDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,15 +13,21 @@ public class PostService {
     private final ModifyPostBean modifyPostBean;
     private final DeletePostBean deletePostBean;
     private final FindAllPostBean findAllPostBean;
+    private final FindDetailPostBean findDetailPostBean;
+    private final FindUserPostBean findUserPostBean;
 
     public PostService(SavePostBean savePostBean,
                        ModifyPostBean modifyPostBean,
                        DeletePostBean deletePostBean,
-                       FindAllPostBean findAllPostBean){
+                       FindAllPostBean findAllPostBean,
+                       FindDetailPostBean findDetailPostBean,
+                       FindUserPostBean findUserPostBean){
         this.savePostBean = savePostBean;
         this.modifyPostBean = modifyPostBean;
         this.deletePostBean = deletePostBean;
         this.findAllPostBean = findAllPostBean;
+        this.findDetailPostBean = findDetailPostBean;
+        this.findUserPostBean = findUserPostBean;
     }
 
 
@@ -44,7 +45,15 @@ public class PostService {
         return deletePostBean.exec(requestDeletePostDTO);
     }
 
-    public List<PostDAO> FindAllPost(){
+    public List<PostDAO> findAllPost(){
         return findAllPostBean.exec();
+    }
+
+    public PostDAO findDetailPost(RequestFindDetailPostDTO requestFindDetailPostDTO){
+        return findDetailPostBean.exec(requestFindDetailPostDTO);
+    }
+
+    public PostDAO findUserPost(RequestFindUserPostDTO requestFindUserPostDTO){
+        return findUserPostBean.exec(requestFindUserPostDTO);
     }
 }
