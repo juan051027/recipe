@@ -71,16 +71,24 @@ public class PostController {
 
     //레시피 id 조회
     @GetMapping("/detail/{recipe_id}")
-    public ResponseEntity<Map<String,Object>> finddetailpost(@PathVariable("recipe_id") RequestFindDetailPostDTO requestFindDetailPostDTO){
+    public ResponseEntity<Map<String,Object>> finddetailpost(@PathVariable("recipe_id") UUID postId){
+        RequestFindDetailPostDTO requestFindDetailPostDTO = new RequestFindDetailPostDTO();
+        requestFindDetailPostDTO.setRecipe_id(postId);
+
         Map<String, Object> responseMap = new HashMap<>();
-        responseMap.put("posts",postService.findDetailPost(requestFindDetailPostDTO));
+
+        responseMap.put("post",postService.findDetailPost(requestFindDetailPostDTO));
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
-    //레시피 id 조회
+    // user id에 맞는 전체 게시물 조회
     @GetMapping("/detail/{user_id}/all")
-    public ResponseEntity<Map<String,Object>> finduserpost(@PathVariable("user_id") RequestFindUserPostDTO requestFindUserPostDTO){
+    public ResponseEntity<Map<String,Object>> finduserpost(@PathVariable("user_id") UUID userId){
+        RequestFindUserPostDTO requestFindUserPostDTO = new RequestFindUserPostDTO();
+        requestFindUserPostDTO.setUser_id(userId);
+
         Map<String, Object> responseMap = new HashMap<>();
+
         responseMap.put("posts",postService.findUserPost(requestFindUserPostDTO));
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }

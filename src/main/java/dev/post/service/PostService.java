@@ -53,7 +53,7 @@ public class PostService {
         return findDetailPostBean.exec(requestFindDetailPostDTO);
     }
 
-    public PostDAO findUserPost(RequestFindUserPostDTO requestFindUserPostDTO){
+    public List<PostDAO> findUserPost(RequestFindUserPostDTO requestFindUserPostDTO){
         return findUserPostBean.exec(requestFindUserPostDTO);
     }
 }

@@ -17,9 +17,8 @@ public class FindUserPostBean {
     }
 
 
-    public PostDAO exec(RequestFindUserPostDTO requestfindUserPostDTO){
-        PostDAO postDAO = postDAORepository.findAllByUserId(requestfindUserPostDTO.getUser_id());
-        return postDAO;
+    public List<PostDAO> exec(RequestFindUserPostDTO requestfindUserPostDTO){
+        return postDAORepository.findAllByUserId(requestfindUserPostDTO.getUser_id());
     }
 
 
