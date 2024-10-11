@@ -1,12 +1,14 @@
 package dev.post.controller;
 
 import dev.post.domain.DTO.*;
+import dev.post.domain.PostDAO;
 import dev.post.service.PostService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -62,9 +64,13 @@ public class PostController {
     //레시피 전체 조회
     @GetMapping("/all")
     public ResponseEntity<Map<String,Object>> findallpost(){
+        List<PostDAO> postDAO = postService.findAllPost();
+        Boolean isSuccess = (postDAO != null);
 
         Map<String, Object> responseMap = new HashMap<>();
-        responseMap.put("posts",postService.findAllPost());
+
+        responseMap.put("isSuccess",isSuccess);
+        responseMap.put("message",isSuccess ? postDAO : "레시피 조회에 실패하였습니다.");
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
 
     }
@@ -75,9 +81,13 @@ public class PostController {
         RequestFindDetailPostDTO requestFindDetailPostDTO = new RequestFindDetailPostDTO();
         requestFindDetailPostDTO.setRecipe_id(postId);
 
+        PostDAO postDAO = postService.findDetailPost(requestFindDetailPostDTO);
+        Boolean isSuccess = (postDAO != null);
+
         Map<String, Object> responseMap = new HashMap<>();
 
-        responseMap.put("post",postService.findDetailPost(requestFindDetailPostDTO));
+        responseMap.put("isSuccess",isSuccess);
+        responseMap.put("message",isSuccess ? postDAO : "레시피 조회에 실패하였습니다.");
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
@@ -87,9 +97,13 @@ public class PostController {
         RequestFindUserPostDTO requestFindUserPostDTO = new RequestFindUserPostDTO();
         requestFindUserPostDTO.setUser_id(userId);
 
+        List<PostDAO> postDAO = postService.findUserPost(requestFindUserPostDTO);
+        Boolean isSuccess = (postDAO != null);
+
         Map<String, Object> responseMap = new HashMap<>();
 
-        responseMap.put("posts",postService.findUserPost(requestFindUserPostDTO));
+        responseMap.put("isSuccess",isSuccess);
+        responseMap.put("message",isSuccess ? postDAO : "레시피 조회에 실패하였습니다.");
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
     }
 
