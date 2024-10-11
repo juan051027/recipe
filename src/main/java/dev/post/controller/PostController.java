@@ -50,13 +50,13 @@ public class PostController {
 
     //레시피 수정
     @PutMapping
-    public ResponseEntity<Map<String, Object>> modifypost(@RequestBody RequestModifyPostDTO requestModifyPostDTO){
-        Boolean isSuccess = postService.modifyPost(requestModifyPostDTO);
+    public ResponseEntity<Map<String, Object>> modifypost(@RequestBody RequestUpdatePostDTO requestUpdatePostDTO){
+        Boolean isSuccess = postService.modifyPost(requestUpdatePostDTO);
 
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("is_success",isSuccess);
         responseMap.put("message", isSuccess ? "레시피 수정에 성공했습니다." : "레시피 수정에 실패하였습니다.");
-        if(isSuccess) responseMap.put("recipe_id",requestModifyPostDTO.getRecipeId());
+        if(isSuccess) responseMap.put("recipe_id", requestUpdatePostDTO.getRecipeId());
         return ResponseEntity.status(HttpStatus.OK).body(responseMap);
 
     }
@@ -65,7 +65,7 @@ public class PostController {
     @GetMapping("/all")
     public ResponseEntity<Map<String,Object>> findallpost(){
         List<PostDAO> postDAO = postService.findAllPost();
-        Boolean isSuccess = (postDAO != null);
+        Boolean isSuccess = (!postDAO.isEmpty());
 
         Map<String, Object> responseMap = new HashMap<>();
 
@@ -76,12 +76,10 @@ public class PostController {
     }
 
     //레시피 id 조회
-    @GetMapping("/detail/{recipe_id}")
-    public ResponseEntity<Map<String,Object>> finddetailpost(@PathVariable("recipe_id") UUID postId){
-        RequestFindDetailPostDTO requestFindDetailPostDTO = new RequestFindDetailPostDTO();
-        requestFindDetailPostDTO.setRecipe_id(postId);
+    @GetMapping("/detail/{recipeId}")
+    public ResponseEntity<Map<String,Object>> finddetailpost(@PathVariable("recipeId") UUID postId){
 
-        PostDAO postDAO = postService.findDetailPost(requestFindDetailPostDTO);
+        PostDAO postDAO = postService.findDetailPost(postId);
         Boolean isSuccess = (postDAO != null);
 
         Map<String, Object> responseMap = new HashMap<>();
@@ -92,13 +90,11 @@ public class PostController {
     }
 
     // user id에 맞는 전체 게시물 조회
-    @GetMapping("/detail/{user_id}/all")
-    public ResponseEntity<Map<String,Object>> finduserpost(@PathVariable("user_id") UUID userId){
-        RequestFindUserPostDTO requestFindUserPostDTO = new RequestFindUserPostDTO();
-        requestFindUserPostDTO.setUser_id(userId);
+    @GetMapping("/detail/{userId}/all")
+    public ResponseEntity<Map<String,Object>> finduserpost(@PathVariable("userId") UUID userId){
 
-        List<PostDAO> postDAO = postService.findUserPost(requestFindUserPostDTO);
-        Boolean isSuccess = (postDAO != null);
+        List<PostDAO> postDAO = postService.findUserPost(userId);
+        Boolean isSuccess = (!postDAO.isEmpty());
 
         Map<String, Object> responseMap = new HashMap<>();
 

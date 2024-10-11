@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Data
-public class RequestModifyPostDTO {
+public class RequestUpdatePostDTO {
     private UUID recipeId;
     private UUID userId;
     private String thumbnail;

@@ -6,54 +6,52 @@ import dev.post.domain.PostDAO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class PostService {
     private final SavePostBean savePostBean;
-    private final ModifyPostBean modifyPostBean;
+    private final UpdatePostBean updatePostBean;
     private final DeletePostBean deletePostBean;
-    private final FindAllPostBean findAllPostBean;
-    private final FindDetailPostBean findDetailPostBean;
-    private final FindUserPostBean findUserPostBean;
+    private final GetPostAllBean getPostAllBean;
+    private final GetPostByPostIdBean getPostByPostIdBean;
+    private final GetPostAllByUserIdBean getPostAllByUserIdBean;
 
     public PostService(SavePostBean savePostBean,
-                       ModifyPostBean modifyPostBean,
+                       UpdatePostBean updatePostBean,
                        DeletePostBean deletePostBean,
-                       FindAllPostBean findAllPostBean,
-                       FindDetailPostBean findDetailPostBean,
-                       FindUserPostBean findUserPostBean){
+                       GetPostAllBean getPostAllBean,
+                       GetPostByPostIdBean getPostByPostIdBean,
+                       GetPostAllByUserIdBean getPostAllByUserIdBean){
         this.savePostBean = savePostBean;
-        this.modifyPostBean = modifyPostBean;
+        this.updatePostBean = updatePostBean;
         this.deletePostBean = deletePostBean;
-        this.findAllPostBean = findAllPostBean;
-        this.findDetailPostBean = findDetailPostBean;
-        this.findUserPostBean = findUserPostBean;
+        this.getPostAllBean = getPostAllBean;
+        this.getPostByPostIdBean = getPostByPostIdBean;
+        this.getPostAllByUserIdBean = getPostAllByUserIdBean;
     }
-
 
     public PostDAO savePost(RequestSavePostDTO requestSavePostDTO){
         return savePostBean.exec(requestSavePostDTO);
     }
 
-
-    public Boolean modifyPost(RequestModifyPostDTO requestModifyPostDTO){
-        return modifyPostBean.exec(requestModifyPostDTO);
+    public Boolean modifyPost(RequestUpdatePostDTO requestUpdatePostDTO){
+        return updatePostBean.exec(requestUpdatePostDTO);
     }
-
 
     public Boolean deletePost(RequestDeletePostDTO requestDeletePostDTO){
         return deletePostBean.exec(requestDeletePostDTO);
     }
 
     public List<PostDAO> findAllPost(){
-        return findAllPostBean.exec();
+        return getPostAllBean.exec();
     }
 
-    public PostDAO findDetailPost(RequestFindDetailPostDTO requestFindDetailPostDTO){
-        return findDetailPostBean.exec(requestFindDetailPostDTO);
+    public PostDAO findDetailPost(UUID recipeId){
+        return getPostByPostIdBean.exec(recipeId);
     }
 
-    public List<PostDAO> findUserPost(RequestFindUserPostDTO requestFindUserPostDTO){
-        return findUserPostBean.exec(requestFindUserPostDTO);
+    public List<PostDAO> findUserPost(UUID userId){
+        return getPostAllByUserIdBean.exec(userId);
     }
 }

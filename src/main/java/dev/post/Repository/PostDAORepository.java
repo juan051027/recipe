@@ -9,6 +9,5 @@ import java.util.UUID;
 public interface PostDAORepository extends JpaRepository<PostDAO, UUID> {
     PostDAO findByUserId(UUID userid);
     PostDAO findByRecipeIdAndUserId(UUID recipeid, UUID userid);
-
     List<PostDAO> findAllByUserId(UUID userid);
 }

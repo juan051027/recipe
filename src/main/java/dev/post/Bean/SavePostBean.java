@@ -29,6 +29,5 @@ public class SavePostBean {
         postDAORepository.save(postDAO);
         return postDAO;
 
-
     }
 }
